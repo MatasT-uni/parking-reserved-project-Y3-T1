@@ -1,0 +1,152 @@
+html,
+body {
+    font-family: 'Prompt', sans-serif !important;
+}
+
+body{
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: #F8A374 !important;
+    box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.12);
+}
+
+.nav-link {
+    color: black !important;
+    font-weight: 500 !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 13pt;
+}
+
+.nav-link:hover {
+    color: white !important;
+}
+
+.navbar-nav .nav-link.active {
+    color: white !important;
+}
+
+.navbar-brand {
+    margin-left: 50px;
+}
+
+.title {
+    text-transform: uppercase;
+    font-size: 28pt;
+    color: #F8A374 !important;
+    font-weight: 600 !important;
+    letter-spacing: 2px;
+}
+
+
+.footer {
+    position: relative;
+    height: 200px;
+    background-color: #F8A374 !important;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.icon-footer {
+    font-size: 16pt;
+}
+
+.text-footer {
+    font-size: 12pt;
+}
+
+.content {
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 2.5rem !important;
+    min-height: 55vh;
+}
+
+
+.text-thanks{
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.img-logo{
+    width: 120px;
+}
+
+.text-topic-1 {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #FF8643;
+}
+
+.text-topic {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #F8A374;
+}
+
+.text-content {
+    font-size: 14pt;
+}
+
+.box-info-ticket{
+    width: 50%;
+    border-radius: 10px;
+    border: 3px solid #F8A374;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 70px;
+    padding-right: 70px;
+
+}
+
+.btn-qr{
+    width: 400px;
+    font-size: 13pt;
+    background-color: #FF8643;
+    border: 3px solid #FF8643;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bold;
+    &:hover{
+        background-color: #FFFFFF;
+        color: #FF8643;
+    }
+}
+
+.btn-hidden{
+    width: 400px;
+    font-size: 13pt;
+    background-color: gray;
+    border: 3px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bold;
+   
+}
+
+.img-qr{
+    width: 250px;
+}
+
+@media only screen and (max-width: 992px) {
+    .box-info-ticket{
+    width: 70%;
+    }
+}
+
+
+@media only screen and (max-width: 576px) {
+    .box-info-ticket{
+        width: 95%;
+        padding-left: 30px;
+        padding-right: 30px;
+        }
+}

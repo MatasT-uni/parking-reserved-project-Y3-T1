@@ -1,0 +1,131 @@
+/*import font*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+/*var to use*/
+:root{
+   --blue:#3498db;
+   --dark-blue:#2980b9;
+   --red:#e74c3c;
+   --dark-red:#c0392b;
+   --black:#333;
+   --white:#fff;
+   --light-bg:#F8A374;
+   --hover-text:#FF8643;
+   --header-text:#E88E5D;
+   --box-shadow:0 5px 10px rgba(0,0,0,.1);
+}
+
+/*all setting in page*/
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border: none;
+   text-decoration: none;
+}
+
+/*login setting scrollbar */
+*::-webkit-scrollbar{
+   width: 10px;
+}
+
+*::-webkit-scrollbar-track{
+   background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb{
+   background-color: var(--blue);
+}
+
+/*login setting all button (btn) in this page*/
+.btn{
+   background-color: var(--blue);
+   width: 80%;
+   border-radius: 5px;
+   padding:10px 30px;
+   color:var(--white);
+   display: block;
+   text-align: center;
+   cursor: pointer;
+   font-size: 20px;
+   margin-top: 40px;
+   margin-left: 45px;
+}
+
+.btn:hover{
+   background-color: var(--dark-blue);  
+}
+
+.message{
+   margin:10px 0;
+   width: 100%;
+   border-radius: 5px;
+   padding:10px;
+   text-align: center;
+   background-color: var(--red);
+   color:var(--white);
+   font-size: 20px;
+}
+
+/*for login setting */
+/*for setting back ground color*/
+.form-container{
+   min-height: 100vh;
+   background-color: var(--light-bg);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding:20px;
+}
+
+/*for login setting form or box cover input*/
+.form-container form{
+   padding:20px;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+   text-align: center;
+   width: 500px;
+   border-radius: 5px;
+}
+
+/*for login setting setting header (LOGIN NOW)*/
+.form-container form h3{
+   margin-bottom: 20px;
+   margin-top: 20px;
+   font-size: 40px;
+   font-weight: bold;
+   color: var(--header-text);
+   text-transform: uppercase;
+}
+
+/*for login setting */
+.form-container form .box{
+   width: 100%;
+   border-radius: 5px;
+   padding:12px 14px;
+   font-size: 18px;
+   color:var(--black);
+   margin:10px 0;
+   /*this setting for box input background color close it for default */
+   /*background-color: var(--light-bg);*/
+}
+
+/*for login setting setting text on (don't have an account?)*/
+.form-container form p{
+   margin-top: 15px;
+   font-size: 20px;
+   color:var(--black);
+}
+
+/*for login setting text that is active*/
+.form-container form p a{
+   color:var(--hover-text);
+   text-decoration: none;
+}
+
+/*for login setting hover when mouse on click on this text*/
+.form-container form p a:hover{
+   text-decoration: underline;
+}
+
+

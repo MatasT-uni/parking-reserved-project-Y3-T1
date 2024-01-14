@@ -1,0 +1,152 @@
+step 1 :- 
+create databse in phpmyadmin
+
+step 2 :-
+
+click on create table and then select sql on the top and copy and paste below code in the query.
+
+
+
+
+
+
+
+
+
+CREATE TABLE `user_form` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4
+
+create database user
+use user();
+CREATE TABLE `user_form` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `title` varchar(10) NOT NULL,
+  `fname` varchar(100) NOT NULL,
+  `lname` varchar(100) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `role` varchar(20) DEFAULT user,
+  `phone` varchar(10) not null,
+  `date_of_birth` date,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4
+
+--Booking--
+CREATE TABLE bookings (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    parking_spot_id INT,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES user_form(id)
+    booking_time DATETIME,
+    floor_level VARCHAR(255),
+    zone VARCHAR(255),
+    slot_no INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (parking_spot_id) REFERENCES parking_spots(id),
+    FOREIGN KEY (user_id) REFERENCES user_form(id)
+);
+
+-- Parking spots table
+CREATE TABLE parking_spots (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    image_path VARCHAR(255) NOT NULL,
+    province VARCHAR(100),
+    district VARCHAR(100),
+    sub_district VARCHAR(100),
+    open_time TIME NOT NULL,
+    close_time TIME NOT NULL,
+    total_slots INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Parking spot floors table
+CREATE TABLE parking_spot_floors (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    parking_spot_id INT NOT NULL,
+    floor_level INT NOT NULL,
+    total_slots INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (parking_spot_id) REFERENCES parking_spots(id)
+);
+
+-- Parking spot zones table
+CREATE TABLE parking_spot_zones (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    floor_id INT NOT NULL,
+    zone VARCHAR(1) NOT NULL,
+    parking_spots_id int not null,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (floor_id) REFERENCES parking_spot_floors(id),
+    FOREIGN key (parking_spots_id) REFERENCES parking_spots(id)
+);
+
+
+-- Insert data into parking_spots
+INSERT INTO parking_spots (name, province, district, sub_district, open_time, close_time, slot_no, image_path)
+VALUES
+    ('Siam Paragon', 'Bangkok', 'Pathum Wan', 'Siam', '08:00', '18:00', 30, 'img/1.jpg'),
+    ('Central Plaza', 'Bangkok', 'Lat Phrao', 'Chom Phon', '09:00', '20:00', 128, 'img/2.jpg'),
+    ('Chatuchak Market', 'Bangkok', 'Chatuchak', 'Chatuchak', '10:00', '17:00', 128, 'img/3.jpg'),
+    ('MBK Center', 'Bangkok', 'Pathum Wan', 'Wang Mai', '11:00', '21:00', 128, 'img/4.jpg');
+
+-- Insert data into parking_spot_floors
+INSERT INTO parking_spot_floors (parking_spot_id, floor_level, total_slots)
+VALUES
+    (1, 1, 32),
+    (2, 1, 32),
+    (3, 1, 32),
+    (4, 1, 32);
+
+-- Insert data into parking_spot_zones
+INSERT INTO parking_spot_zones (floor_id, zone, total_slots)
+VALUES
+    (1, 'A', 8),
+    (1, 'B', 8),
+    (1, 'C', 8),
+    (1, 'D', 8),
+    (2, 'A', 8),
+    (2, 'B', 8),
+    (2, 'C', 8),
+    (2, 'D', 8),
+    (3, 'A', 8),
+    (3, 'B', 8),
+    (3, 'C', 8),
+    (3, 'D', 8),
+    (4, 'A', 8),
+    (4, 'B', 8),
+    (4, 'C', 8),
+    (4, 'D', 8);
+
+
+
+-- Create admin_table
+CREATE TABLE admin_table (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(20) DEFAULT 'admin' -- You can adjust the role as needed
+);
+
+-- Insert sample data into admin_table
+INSERT INTO admin_table (username, email, password, title, fname, lname) VALUES
+    ('admin1', 'admin1@example.com', MD5('admin1password'), 'Mr.', 'John', 'Doe'),
+    ('admin2', 'admin2@example.com', MD5('admin2password'), 'Miss', 'Jane', 'Doe'),
+    ('admin3', 'admin3@example.com', MD5('admin3password'), 'Mrs.', 'Alice', 'Smith');
+
+
+    INSERT INTO admin_table (username, email, password, title, fname, lname)
+VALUES
+    ('admin1', 'admin1@example.com', 'hashed_password', 'Mr.', 'John', 'Doe'),
+    ('admin2', 'admin2@example.com', 'hashed_password', 'Miss', 'Jane', 'Doe'),
+    ('admin3', 'admin3@example.com', 'hashed_password', 'Mrs.', 'Alice', 'Smith');

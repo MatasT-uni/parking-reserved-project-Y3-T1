@@ -1,5 +1,11 @@
 ---
 
+### Short Description
+
+**Parking Reservation System** is a web-based application developed using PHP, MySQL, HTML, CSS, and JavaScript. The system allows users to book parking spots online, manage reservations, and handle administrative tasks, providing a complete solution for parking management.
+
+---
+
 ### README
 
 # Parking Reservation System
@@ -66,6 +72,7 @@ To run this project, you will need:
 - **User Registration**: New users can register through the registration form.
 - **Booking Parking Spots**: Once logged in, users can search for available spots and make reservations.
 - **Admin Panel**: Admins can log in to manage users, bookings, and parking spots.
+
 
 ## Contributors
 
